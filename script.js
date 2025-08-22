@@ -89,3 +89,13 @@ faders.forEach((fader) => {
   fader.style.animationPlayState = "paused";
   appearOnScroll.observe(fader);
 });
+function checkOrientation() {
+  const blocker = document.querySelector(".landscape-blocker");
+  if (window.innerWidth > window.innerHeight) {
+    blocker.style.display = "flex"; // mostrar overlay
+  } else {
+    blocker.style.display = "none"; // ocultar
+  }
+}
+window.addEventListener("resize", checkOrientation);
+window.addEventListener("load", checkOrientation);
