@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invitación XV Años Yanis</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
     <!-- Fuente elegante tipo carta -->
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
@@ -25,7 +43,6 @@
       <nav id="menu">
         <a href="#inicio">Inicio</a>
         <a href="#colores">Colores</a>
-        <a href="#evento">Evento</a>
         <a href="#evento">Confirmar</a>
       </nav>
     </header>
@@ -58,52 +75,82 @@
       <div class="music-controls">
         <button id="play-pause">⏸ Pausar Música</button>
       </div>
-      <div class="rose-divider"></div>
+      <div class="rose-divider">
+        <img src="./assets/img/flower.png" alt="Flor decorativa" />
+      </div>
     </section>
 
     <!-- Contador regresivo -->
     <section class="countdown-section fade-in">
       <h2>¡La gran noche comienza en:</h2>
       <div id="countdown" class="countdown"></div>
-      <div class="rose-divider"></div>
+      <div class="rose-divider">
+        <img src="./assets/img/flower.png" alt="Flor decorativa" />
+      </div>
     </section>
 
     <!-- Colores reservados -->
     <section id="colores" class="colors-section fade-in">
+      <div class="dress-code">
+        <img
+          src="./assets/img/vestimenta.png"
+          alt="Código de vestimenta"
+          class="dress-img"
+        />
+        <p>
+          Código de vestimenta:
+          <strong
+            >Formal<br />
+            .</strong
+          >
+        </p>
+      </div>
       <h2>Colores reservados</h2>
       <div class="colors">
-        <div class="color-circle" style="background-color: #f7c1d9"></div>
-        <div class="color-circle" style="background-color: #fff0f5"></div>
+        <div class="color-circle" style="background-color: #ff0073"></div>
+        <div class="color-circle" style="background-color: #9500ff"></div>
         <div class="color-circle" style="background-color: #e0b0ff"></div>
       </div>
-      <div class="rose-divider"></div>
+      <div class="rose-divider">
+        <img src="./assets/img/flower.png" alt="Flor decorativa" />
+      </div>
     </section>
 
     <!-- Botones de ubicación, confirmación y vestimenta -->
     <section id="evento" class="buttons-section fade-in">
+      <div class="map-preview">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.488612309824!2d-68.93478310000005!3d-22.448265799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ac0995eb9e6529%3A0xff22b8bb5cc1bec1!2sManuel%20Montt%202680%2C%201393095%20Calama%2C%20Antofagasta!5e0!3m2!1ses-419!2scl!4v1755893356779!5m2!1ses-419!2scl"
+          width="400"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
       <a
         class="fancy-button"
-        href="https://maps.google.com/?q=salon+de+eventos"
+        href="https://maps.app.goo.gl/5DHkfnx7QSJoucpk9"
         target="_blank"
-        >Ver Ubicación</a
+        >📍Ver Ubicación</a
       >
-      <a
-        class="fancy-button"
-        href="https://wa.me/5210000000000?text=Hola+Valentina!+Confirmo+mi+asistencia+a+tus+XV!"
-        target="_blank"
-        >Confirmar Asistencia</a
+      <a id="rsvp-button" class="fancy-button" target="_blank"
+        >📩 Confirmar Asistencia</a
       >
-      <a class="fancy-button" href="#rsvp">Código de vestimenta: Formal</a>
-      <div class="rose-divider"></div>
     </section>
 
     <!-- Footer -->
     <footer class="fade-in">
-      <p>© Derechos reservados NoxXz0</p>
       <p>
-        <a href="mailto:contacto@noxxz0.com">contacto@noxxz0.com</a> |
-        <a href="tel:+5210000000000">+52 100 000 0000</a>
+        <a href="mailto:arturocamacho727@gmail.com"
+          >arturocamacho727@gmail.com</a
+        >
+        |
+        <a href="tel:+56966411859">+56 9 6641 1859</a>
       </p>
+      <p>© Derechos reservados NoxXz0</p>
     </footer>
 
     <script src="script.js"></script>

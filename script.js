@@ -52,7 +52,7 @@ playPauseBtn.addEventListener("click", () => {
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-const targetDate = new Date("2025-12-15T20:00:00"); // Ajusta la fecha
+const targetDate = new Date("2025-10-17T16:00:00"); // Ajusta la fecha
 function updateCountdown() {
   const now = new Date();
   const diff = targetDate - now;
@@ -99,3 +99,12 @@ function checkOrientation() {
 }
 window.addEventListener("resize", checkOrientation);
 window.addEventListener("load", checkOrientation);
+const rsvpBtn = document.getElementById("rsvp-button");
+
+// número y mensaje editables
+const phoneNumber = "56966411859";
+const message = "Hola Yanis! Confirmo mi asistencia a tus XV 🎉";
+
+rsvpBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+  message
+)}`;
