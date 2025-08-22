@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación XV Años Yanis</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Fuente elegante tipo carta -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Fondo mágico con partículas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Menú Hamburguesa -->
+    <header class="fade-in">
+      <div class="logo">Mis XV Yanis Antonela</div>
+      <div id="menu-toggle" class="menu-toggle">&#9776;</div>
+      <nav id="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#colores">Colores</a>
+        <a href="#evento">Evento</a>
+        <a href="#rsvp">Confirmar</a>
+      </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <section id="inicio" class="hero fade-in">
+      <div class="frame">
+        <img
+          src="./assets/img/15anera.png"
+          alt="Quinceañera"
+          class="profile-pic"
+        />
+        <div class="roses-sides">
+          <img src="./assets/img/flower.png" alt="rosas" class="rose-left" />
+          <img src="./assets/img/flower.png" alt="rosas" class="rose-right" />
+        </div>
+      </div>
+
+      <h1 class="name">Yanis Antonela Gutierrez Baptista</h1>
+      <audio
+        id="bg-music"
+        src="./assets/musica/music.mp3"
+        autoplay
+        loop
+      ></audio>
+      <div class="music-controls">
+        <button id="play-pause">⏸ Pausar Música</button>
+      </div>
+      <div class="rose-divider"></div>
+    </section>
+
+    <!-- Contador regresivo -->
+    <section class="countdown-section fade-in">
+      <h2>¡La gran noche comienza en:</h2>
+      <div id="countdown" class="countdown"></div>
+      <div class="rose-divider"></div>
+    </section>
+
+    <!-- Colores reservados -->
+    <section id="colores" class="colors-section fade-in">
+      <h2>Colores reservados</h2>
+      <div class="colors">
+        <div class="color-circle" style="background-color: #f7c1d9"></div>
+        <div class="color-circle" style="background-color: #fff0f5"></div>
+        <div class="color-circle" style="background-color: #e0b0ff"></div>
+      </div>
+      <div class="rose-divider"></div>
+    </section>
+
+    <!-- Botones de ubicación, confirmación y vestimenta -->
+    <section id="evento" class="buttons-section fade-in">
+      <a
+        class="fancy-button"
+        href="https://maps.google.com/?q=salon+de+eventos"
+        target="_blank"
+        >Ver Ubicación</a
+      >
+      <a
+        class="fancy-button"
+        href="https://wa.me/5210000000000?text=Hola+Valentina!+Confirmo+mi+asistencia+a+tus+XV!"
+        target="_blank"
+        >Confirmar Asistencia</a
+      >
+      <a class="fancy-button" href="#rsvp">Código de vestimenta: Formal</a>
+      <div class="rose-divider"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+      <p>© Derechos reservados NoxXz0</p>
+      <p>
+        <a href="mailto:contacto@noxxz0.com">contacto@noxxz0.com</a> |
+        <a href="tel:+5210000000000">+52 100 000 0000</a>
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
