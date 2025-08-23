@@ -70,7 +70,7 @@ menuLinks.forEach((link) => {
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
-const targetDate = new Date("2025-10-17T16:00:00"); // Ajusta la fecha
+const targetDate = new Date("2025-10-18T17:00:00"); // Ajusta la fecha
 function updateCountdown() {
   const now = new Date();
   const diff = targetDate - now;

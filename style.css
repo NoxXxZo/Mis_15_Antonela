@@ -17,7 +17,7 @@ body {
   inset: 0; /* reemplaza top/left/width/height */
   max-width: 100vw;
   max-height: 100vh;
-  background: radial-gradient(circle, #c8e3f1 0%, #64b1d0 100%);
+  background: radial-gradient(circle, #2adfd6 0%, #0257a7 100%);
 }
 
 /* ===== Animación general ===== */
@@ -113,8 +113,8 @@ nav a:hover::after {
   margin: auto;
   border-radius: 50%;
   overflow: hidden;
-  border: 8px solid #8ad0f3;
-  box-shadow: 0 0 20px #c1f7f6;
+  border: 8px solid #079dd8;
+  box-shadow: 0 0 20px #00b8e3;
 }
 .profile-pic {
   width: 100%;
@@ -160,16 +160,38 @@ nav a:hover::after {
   font-family: "Great Vibes", cursive;
   font-size: 3rem;
   margin-top: 1.5rem;
-  text-shadow: -2px -2px 0 #20b2c5, 2px -2px 0 #20b2c5, -2px 2px 0 #20b2c5,
-    2px 2px 0 #20b2c5;
   animation: slowMove 6s ease-in-out infinite alternate;
 }
+.name a {
+  color: inherit; /* hereda el color del padre */
+  text-decoration: none; /* quita el subrayado */
+}
+
+.name a:hover {
+  color: inherit; /* mantiene el color al pasar el mouse */
+  text-decoration: none; /* evita que se subraye */
+}
+
 @keyframes slowMove {
   from {
     transform: translateY(0);
   }
   to {
     transform: translateY(-10px);
+  }
+}
+.name15 {
+  font-family: "Great Vibes", cursive;
+  font-size: 5rem;
+  margin-top: 1.5rem;
+  animation: slowMove 4s ease-in-out infinite alternate;
+}
+@keyframes slowMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
   }
 }
 
@@ -322,10 +344,10 @@ footer a:hover {
   scroll-margin-top: 100px; /* mismo padding-top de tu hero, ajusta según tu header */
 }
 .h3 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
   text-align: center;
-  font-style: italic;
+  font-style: normal;
   font-family: fantasy;
   color: #ffffff;
 }
@@ -335,8 +357,6 @@ footer a:hover {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.4rem;
   color: #ffffff;
-  text-shadow: -1px -1px 0 #20b2c5, 1px -1px 0 #20b2c5, -1px 1px 0 #20b2c5,
-    1px 1px 0 #20b2c5;
 }
 .dedication p {
   margin: 0.5rem 0;
