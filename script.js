@@ -49,6 +49,24 @@ playPauseBtn.addEventListener("click", () => {
     playPauseBtn.textContent = "▶ Reproducir Música";
   }
 });
+// ===== Scroll suave y cerrar menú =====
+const menuLinks = document.querySelectorAll("#menu a");
+
+menuLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // Evita el salto inmediato
+
+    const targetId = link.getAttribute("href");
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Cerrar menú hamburguesa después de click
+    menu.classList.remove("active");
+  });
+});
 
 // ===== Countdown =====
 const countdown = document.getElementById("countdown");
