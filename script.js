@@ -82,7 +82,22 @@ function updateCountdown() {
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
-  countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdown.innerHTML = `
+  <div class="time-box">
+    <span class="time-number">${days}</span>
+    <span class="time-label">Días</span>
+  </div>
+  <div class="separator">:</div>
+  <div class="time-box">
+    <span class="time-number">${hours}</span>
+    <span class="time-label">Horas</span>
+  </div>
+  <div class="separator">:</div>
+  <div class="time-box">
+    <span class="time-number">${minutes}</span>
+    <span class="time-label">Minutos</span>
+  </div>
+`;
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
