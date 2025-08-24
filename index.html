@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invitación XV Años Yanis</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Invitación ✉️</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -23,176 +22,219 @@
       href="./assets/favicon_io/favicon-16x16.png"
     />
     <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
-    <!-- Fuente elegante tipo carta -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
-      rel="stylesheet"
-    />
-    <div class="landscape-blocker">
-      ⚠️ Por favor, usa tu teléfono en vertical 📱
-    </div>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: radial-gradient(circle, #1dc1d0 0%, #0257a7 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Contenedor del sobre */
+      .envelope {
+        width: 180px;
+        height: auto;
+        animation: pulse 3s ease-in-out 3; /* palpita más lento y 3 veces */
+        z-index: 3;
+        position: relative;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* Zoom hacia la cámara */
+      .zoom {
+        animation: zoomIn 2.5s forwards;
+      }
+      @keyframes zoomIn {
+        to {
+          transform: scale(7);
+          opacity: 0;
+        }
+      }
+
+      /* Canvas de partículas */
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      /* Flash de luz */
+      .flash {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+        z-index: 4;
+        pointer-events: none;
+      }
+      .flash.active {
+        animation: flashEffect 0.8s forwards;
+      }
+      @keyframes flashEffect {
+        0% {
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Fondo mágico con partículas -->
     <canvas id="particles"></canvas>
+    <img
+      src="./assets/img/sobre.png"
+      class="envelope"
+      id="envelope"
+      alt="Sobre"
+    />
+    <div class="flash" id="flash"></div>
 
-    <!-- Menú Hamburguesa -->
-    <header class="fade-in">
-      <div class="logo">Mis XV Yanis Antonela</div>
-      <div id="menu-toggle" class="menu-toggle">&#9776;</div>
-      <nav id="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#regresivo">Calendario</a>
-        <a href="#colores">Vestimenta</a>
-        <a href="#evento">Ubicación</a>
-        <a href="#evento">Confirmar</a>
-      </nav>
-    </header>
+    <script>
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
 
-    <!-- Sección principal -->
-    <section id="inicio" class="hero fade-in">
-      <h1 class="name15">
-        Mis <br />
-        15 Años
-      </h1>
-      <div class="frame">
-        <img
-          src="./assets/img/15anera.png"
-          alt="Quinceañera"
-          class="profile-pic"
-        />
-      </div>
-      <div class="roses-sides">
-        <img src="./assets/img/flower.png" alt="rosas" class="rose-left" />
-        <img src="./assets/img/flower.png" alt="rosas" class="rose-right" />
-      </div>
+      class Particle {
+        constructor(
+          x,
+          y,
+          color,
+          size,
+          velocity,
+          life = 200,
+          isFloating = false,
+          sparkle = false
+        ) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.size = size;
+          this.velocity = velocity;
+          this.life = life;
+          this.isFloating = isFloating;
+          this.sparkle = sparkle;
+        }
+        update() {
+          this.x += this.velocity.x;
+          this.y += this.velocity.y;
 
-      <h1 class="name">Yanis Antonela <br />Gutierrez Baptista</h1>
-      <audio
-        id="bg-music"
-        src="./assets/musica/music.mp3"
-        autoplay
-        loop
-      ></audio>
-      <div class="music-controls">
-        <button id="play-pause">▶ Reproducir Música</button>
-        <h3 class="h3">Toca el botón ▶ para escuchar mi canción</h3>
-        <img
-          src="./assets/img/mis_15.png"
-          alt="Mis 15 años"
-          class="mis15-img"
-        />
-      </div>
-      <div class="rose-divider">
-        <img src="./assets/img/flower.png" alt="Flor decorativa" />
-      </div>
-    </section>
-    <!-- seccion de dedicatoria -->
-    <section class="dedication-section fade-in">
-      <div class="dedication">
-        <p>
-          Agradezco a mis padres por todo su amor y apoyo incondicional. A mis
-          amigos por hacer de mi vida una aventura inolvidable. Y a todos
-          ustedes por acompañarme en este día tan especial.
-        </p>
-        <h1 class="name">Con el amor de <br />mis padres</h1>
-        <p>
-          Reynaldo Gutierrez Vilte <br />
-          & <br />
-          Maria Eugenia Baptista Coronel
-        </p>
-      </div>
-      <div class="rose-divider">
-        <img src="./assets/img/flower.png" alt="Flor decorativa" />
-      </div>
-    </section>
-    <!-- Contador regresivo -->
-    <section id="regresivo" class="countdown-section fade-in">
-      <h2>Reserva esta fecha:</h2>
-      <h1 class="name">18 de Octubre de 2025</h1>
-      <h2>Solo falta</h2>
-      <div id="countdown" class="countdown"></div>
-      <div class="buttons-section">
-        <a
-          class="fancy-button"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Fiesta+de+15+años+de+Yanis+Antonela+Gutierrez+Baptista&dates=20251018T210000Z/20251019T030000Z&details=Te+espero+en+mi+fiesta+de+15!&location=Manuel+Montt+2680,+Calama,+Chile"
-          target="_blank"
-        >
-          📅 Agendar a Google Calendar
-        </a>
-        <a class="fancy-button" href="./evento.ics" download="evento.ics">
-          🍏 Agregar a Calendario (iPhone / Outlook)
-        </a>
-      </div>
-      <div class="rose-divider">
-        <img src="./assets/img/flower.png" alt="Flor decorativa" />
-      </div>
-    </section>
+          if (!this.isFloating) {
+            this.life -= 2;
+          } else {
+            // Reposicionar si se sale de pantalla
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+          }
+        }
+        draw() {
+          if (this.sparkle) {
+            ctx.globalAlpha = Math.random(); // parpadeo
+          } else {
+            ctx.globalAlpha = this.isFloating ? 0.5 : this.life / 200;
+          }
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      }
 
-    <!-- Colores reservados -->
-    <section id="colores" class="colors-section fade-in">
-      <div class="dress-code">
-        <h3 class="dress-title">Código de vestimenta</h3>
-        <img
-          src="./assets/img/vestimenta.png"
-          alt="Código de vestimenta"
-          class="dress-img"
-        />
-        <p>
-          <strong
-            >Formal<br />
-            .</strong
-          >
-        </p>
-      </div>
-      <h2>Colores reservados para la Quinceañera:</h2>
-      <div class="colors">
-        <div class="color-circle" style="background-color: #4affe4"></div>
-        <div class="color-circle" style="background-color: #27e7ed"></div>
-        <div class="color-circle" style="background-color: #0766cc"></div>
-      </div>
-      <div class="rose-divider">
-        <img src="./assets/img/flower.png" alt="Flor decorativa" />
-      </div>
-    </section>
+      let particles = [];
 
-    <!-- Botones de ubicación, confirmación y vestimenta -->
-    <section id="evento" class="buttons-section fade-in">
-      <div class="map-preview">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.488612309824!2d-68.93478310000005!3d-22.448265799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96ac0995eb9e6529%3A0xff22b8bb5cc1bec1!2sManuel%20Montt%202680%2C%201393095%20Calama%2C%20Antofagasta!5e0!3m2!1ses-419!2scl!4v1755893356779!5m2!1ses-419!2scl"
-          width="400"
-          height="300"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+      // Crear partículas flotantes iniciales
+      function createFloatingParticles() {
+        for (let i = 0; i < 80; i++) {
+          particles.push(
+            new Particle(
+              Math.random() * canvas.width,
+              Math.random() * canvas.height,
+              ["#00bcfb", "#6fb8d6", "#ffffff"][Math.floor(Math.random() * 3)],
+              Math.random() * 2 + 1,
+              {
+                x: (Math.random() - 0.5) * 0.2,
+                y: (Math.random() - 0.5) * 0.2,
+              },
+              9999,
+              true
+            )
+          );
+        }
+      }
+      createFloatingParticles();
 
-      <a
-        class="fancy-button"
-        href="https://maps.app.goo.gl/5DHkfnx7QSJoucpk9"
-        target="_blank"
-        >📍Ver Ubicación</a
-      >
-      <a id="rsvp-button" class="fancy-button" target="_blank"
-        >📩 Confirmar Asistencia</a
-      >
-    </section>
+      // Loop de animación
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p, i) => {
+          p.update();
+          p.draw();
+          if (p.life <= 0 && !p.isFloating) particles.splice(i, 1);
+        });
+      }
+      animate();
 
-    <!-- Footer -->
-    <footer class="fade-in">
-      <p>
-        <a href="mailto:arturocamacho727@gmail.com"
-          >arturocamacho727@gmail.com</a
-        >
-        |
-        <a href="tel:+56966411859">+56 9 6641 1859</a>
-      </p>
-      <p>© Derechos reservados NoxXz0</p>
-    </footer>
+      // Animación del sobre
+      const envelope = document.getElementById("envelope");
+      const flash = document.getElementById("flash");
 
-    <script src="script.js"></script>
+      setTimeout(() => {
+        envelope.classList.add("zoom");
+
+        // Flash de luz
+        flash.classList.add("active");
+
+        // Explosión de partículas mágicas
+        for (let i = 0; i < 200; i++) {
+          const angle = Math.random() * 2 * Math.PI;
+          const speed = Math.random() * 6 + 2;
+          particles.push(
+            new Particle(
+              canvas.width / 2,
+              canvas.height / 2,
+              ["#00bcfb", "#6fb8d6", "#ffffff", "#55c6ff", "#a7eaf0"][
+                Math.floor(Math.random() * 5)
+              ],
+              Math.random() * 6 + 3,
+              { x: Math.cos(angle) * speed, y: Math.sin(angle) * speed },
+              180,
+              false,
+              Math.random() > 0.7 // algunos brillan
+            )
+          );
+        }
+
+        // Redirigir al index
+        setTimeout(() => {
+          window.location.href = "invitacion.html";
+        }, 2800);
+      }, 6000); // 3 palpitaciones (3s * 3)
+    </script>
   </body>
 </html>
